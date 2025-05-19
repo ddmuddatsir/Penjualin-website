@@ -42,7 +42,8 @@ export default function LayoutWrapper({
     "/sign-up",
     "/create",
     "/verify-email-address",
-    "sign-up/verify-email-address",
+    "/sign-up/verify-email-address",
+    "/sign-in/factor-one",
   ].includes(pathname);
 
   const isPublicPage = ["/", "/sign-in", "/sign-up"].includes(pathname);

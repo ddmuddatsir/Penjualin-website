@@ -90,27 +90,36 @@ export async function POST(req: Request) {
   }
 }
 
-// PUT - Memperbarui deal berdasarkan ID
-export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
-  const { id } = params; // Mengambil ID dari params route
-  const body = await req.json();
-  const { stage } = body;
-
-  if (!stage) {
-    return NextResponse.json(
-      { error: "Stage tidak boleh kosong" },
-      { status: 400 }
-    );
-  }
-
+export async function PUT(req: Request) {
   try {
-    // Cari deal yang ingin diperbarui
+    const body = await req.json();
+    const { id, stage } = body;
+
+    if (!id || !stage) {
+      return NextResponse.json(
+        { error: "ID dan stage harus disediakan" },
+        { status: 400 }
+      );
+    }
+
+    const deal = await prisma.deal.findUnique({ where: { id } });
+
+    if (!deal) {
+      return NextResponse.json(
+        { error: "Deal tidak ditemukan" },
+        { status: 404 }
+      );
+    }
+
     const updatedDeal = await prisma.deal.update({
       where: { id },
-      data: { stage }, // Hanya update field 'stage'
+      data: { stage },
+      include: {
+        customer: true,
+        owner: true,
+        notes: true,
+        tasks: true,
+      },
     });
 
     return NextResponse.json(updatedDeal);

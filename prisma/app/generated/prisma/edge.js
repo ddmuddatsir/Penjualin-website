@@ -254,11 +254,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://myuser:1234@localhost:5432/penjualin_database?schema=public"
+        "value": null
       }
     }
   },

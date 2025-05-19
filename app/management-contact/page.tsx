@@ -23,13 +23,6 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@/components/ui/select";
 import axios from "axios";
 
 type Customer = {
@@ -41,7 +34,6 @@ type Customer = {
   company?: string;
   createdAt: string;
   updatedAt: string;
-  status?: "Aktif" | "Nonaktif";
 };
 
 export default function Page() {
@@ -53,7 +45,6 @@ export default function Page() {
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [newPhone, setNewPhone] = useState("");
-  const [newStatus, setNewStatus] = useState<"Aktif" | "Nonaktif">("Aktif");
 
   const filtered = customers.filter((c) =>
     c.name.toLowerCase().includes(search.toLowerCase())
@@ -65,7 +56,6 @@ export default function Page() {
         name: newName,
         email: newEmail,
         phone: newPhone,
-        status: newStatus,
       };
 
       const response = await axios.post("/api/customers", newContact);
@@ -74,7 +64,6 @@ export default function Page() {
       setNewName("");
       setNewEmail("");
       setNewPhone("");
-      setNewStatus("Aktif");
     } catch (error) {
       console.error("Gagal tambah kontak:", error);
       alert("Gagal menambahkan kontak");
@@ -169,23 +158,6 @@ export default function Page() {
                     placeholder="Masukkan no telepon"
                   />
                 </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="status">Status</Label>
-                  <Select
-                    value={newStatus}
-                    onValueChange={(v) =>
-                      setNewStatus(v as "Aktif" | "Nonaktif")
-                    }
-                  >
-                    <SelectTrigger id="status">
-                      <SelectValue placeholder="Pilih status" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Aktif">Aktif</SelectItem>
-                      <SelectItem value="Nonaktif">Nonaktif</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
               </div>
               <DialogFooter>
                 <Button onClick={handleAddContact}>Simpan</Button>
@@ -201,7 +173,6 @@ export default function Page() {
                 <th className="px-6 py-3">Nama</th>
                 <th className="px-6 py-3">Email</th>
                 <th className="px-6 py-3">No Telepon</th>
-                <th className="px-6 py-3">Status</th>
                 <th className="px-6 py-3 text-right">Aksi</th>
               </tr>
             </thead>
@@ -211,7 +182,6 @@ export default function Page() {
                   <td className="px-6 py-4">{cust.name}</td>
                   <td className="px-6 py-4">{cust.email}</td>
                   <td className="px-6 py-4">{cust.phone}</td>
-                  <td className="px-6 py-4">{cust.status ?? "Aktif"}</td>
                   <td className="px-6 py-4 text-right space-x-2">
                     <Dialog>
                       <DialogTrigger asChild>

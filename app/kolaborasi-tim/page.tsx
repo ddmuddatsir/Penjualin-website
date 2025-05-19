@@ -31,15 +31,28 @@ export default function Page() {
   const [members, setMembers] = useState<Member[]>([]);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [origin, setOrigin] = useState("");
 
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
   const [newRole, setNewRole] = useState<"Admin" | "Sales" | "Manager" | "">(
     ""
   );
   const [isInviteModalOpen, setInviteModalOpen] = useState(false);
-  const inviteLink = `${window.location.origin}/sign-up`;
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setOrigin(window.location.origin);
+    }
+  }, []);
+
+  const inviteLink = origin ? `${origin}/sign-up` : "";
+  // const inviteLink = `${window.location.origin}/sign-up`;
 
   const handleCopyLink = async () => {
+    if (!inviteLink) {
+      alert("Link belum tersedia.");
+      return;
+    }
     try {
       await navigator.clipboard.writeText(inviteLink);
       alert("Link berhasil disalin!");
@@ -49,6 +62,7 @@ export default function Page() {
   };
 
   const handleWhatsAppInvite = () => {
+    if (!inviteLink) return;
     const message = encodeURIComponent(
       `Hai! Yuk bergabung ke tim kami lewat link berikut: ${inviteLink}`
     );
@@ -56,6 +70,7 @@ export default function Page() {
   };
 
   const handleEmailInvite = () => {
+    if (!inviteLink) return;
     const subject = encodeURIComponent("Undangan Bergabung ke Tim");
     const body = encodeURIComponent(
       `Hai,\n\nSaya ingin mengundang Anda untuk bergabung ke tim kami. Silakan klik link berikut untuk mendaftar:\n\n${inviteLink}`
