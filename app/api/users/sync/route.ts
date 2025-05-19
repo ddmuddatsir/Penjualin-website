@@ -12,7 +12,7 @@ export async function GET() {
         role: true,
         clerkId: true,
         createdAt: true,
-        updateAt: true,
+        updatedAt: true,
         isOnline: true,
       },
     });

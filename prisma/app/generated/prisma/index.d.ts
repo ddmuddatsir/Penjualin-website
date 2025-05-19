@@ -363,8 +363,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.7.0
-   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+   * Prisma Client JS version: 6.8.2
+   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
    */
   export type PrismaVersion = {
     client: string
@@ -1836,7 +1836,7 @@ export namespace Prisma {
     password: string | null
     role: $Enums.Role | null
     createdAt: Date | null
-    updateAt: Date | null
+    updatedAt: Date | null
     clerkId: string | null
     isOnline: boolean | null
   }
@@ -1848,7 +1848,7 @@ export namespace Prisma {
     password: string | null
     role: $Enums.Role | null
     createdAt: Date | null
-    updateAt: Date | null
+    updatedAt: Date | null
     clerkId: string | null
     isOnline: boolean | null
   }
@@ -1860,7 +1860,7 @@ export namespace Prisma {
     password: number
     role: number
     createdAt: number
-    updateAt: number
+    updatedAt: number
     clerkId: number
     isOnline: number
     _all: number
@@ -1874,7 +1874,7 @@ export namespace Prisma {
     password?: true
     role?: true
     createdAt?: true
-    updateAt?: true
+    updatedAt?: true
     clerkId?: true
     isOnline?: true
   }
@@ -1886,7 +1886,7 @@ export namespace Prisma {
     password?: true
     role?: true
     createdAt?: true
-    updateAt?: true
+    updatedAt?: true
     clerkId?: true
     isOnline?: true
   }
@@ -1898,7 +1898,7 @@ export namespace Prisma {
     password?: true
     role?: true
     createdAt?: true
-    updateAt?: true
+    updatedAt?: true
     clerkId?: true
     isOnline?: true
     _all?: true
@@ -1983,7 +1983,7 @@ export namespace Prisma {
     password: string | null
     role: $Enums.Role
     createdAt: Date
-    updateAt: Date
+    updatedAt: Date
     clerkId: string
     isOnline: boolean
     _count: UserCountAggregateOutputType | null
@@ -2012,7 +2012,7 @@ export namespace Prisma {
     password?: boolean
     role?: boolean
     createdAt?: boolean
-    updateAt?: boolean
+    updatedAt?: boolean
     clerkId?: boolean
     isOnline?: boolean
     deals?: boolean | User$dealsArgs<ExtArgs>
@@ -2029,7 +2029,7 @@ export namespace Prisma {
     password?: boolean
     role?: boolean
     createdAt?: boolean
-    updateAt?: boolean
+    updatedAt?: boolean
     clerkId?: boolean
     isOnline?: boolean
   }, ExtArgs["result"]["user"]>
@@ -2041,7 +2041,7 @@ export namespace Prisma {
     password?: boolean
     role?: boolean
     createdAt?: boolean
-    updateAt?: boolean
+    updatedAt?: boolean
     clerkId?: boolean
     isOnline?: boolean
   }, ExtArgs["result"]["user"]>
@@ -2053,12 +2053,12 @@ export namespace Prisma {
     password?: boolean
     role?: boolean
     createdAt?: boolean
-    updateAt?: boolean
+    updatedAt?: boolean
     clerkId?: boolean
     isOnline?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "role" | "createdAt" | "updateAt" | "clerkId" | "isOnline", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "role" | "createdAt" | "updatedAt" | "clerkId" | "isOnline", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     deals?: boolean | User$dealsArgs<ExtArgs>
     notes?: boolean | User$notesArgs<ExtArgs>
@@ -2084,7 +2084,7 @@ export namespace Prisma {
       password: string | null
       role: $Enums.Role
       createdAt: Date
-      updateAt: Date
+      updatedAt: Date
       clerkId: string
       isOnline: boolean
     }, ExtArgs["result"]["user"]>
@@ -2520,7 +2520,7 @@ export namespace Prisma {
     readonly password: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'Role'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
-    readonly updateAt: FieldRef<"User", 'DateTime'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
     readonly clerkId: FieldRef<"User", 'String'>
     readonly isOnline: FieldRef<"User", 'Boolean'>
   }
@@ -11831,7 +11831,7 @@ export namespace Prisma {
     password: 'password',
     role: 'role',
     createdAt: 'createdAt',
-    updateAt: 'updateAt',
+    updatedAt: 'updatedAt',
     clerkId: 'clerkId',
     isOnline: 'isOnline'
   };
@@ -12069,7 +12069,7 @@ export namespace Prisma {
     password?: StringNullableFilter<"User"> | string | null
     role?: EnumRoleFilter<"User"> | $Enums.Role
     createdAt?: DateTimeFilter<"User"> | Date | string
-    updateAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
     clerkId?: StringFilter<"User"> | string
     isOnline?: BoolFilter<"User"> | boolean
     deals?: DealListRelationFilter
@@ -12085,7 +12085,7 @@ export namespace Prisma {
     password?: SortOrderInput | SortOrder
     role?: SortOrder
     createdAt?: SortOrder
-    updateAt?: SortOrder
+    updatedAt?: SortOrder
     clerkId?: SortOrder
     isOnline?: SortOrder
     deals?: DealOrderByRelationAggregateInput
@@ -12105,7 +12105,7 @@ export namespace Prisma {
     password?: StringNullableFilter<"User"> | string | null
     role?: EnumRoleFilter<"User"> | $Enums.Role
     createdAt?: DateTimeFilter<"User"> | Date | string
-    updateAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
     isOnline?: BoolFilter<"User"> | boolean
     deals?: DealListRelationFilter
     notes?: NoteListRelationFilter
@@ -12120,7 +12120,7 @@ export namespace Prisma {
     password?: SortOrderInput | SortOrder
     role?: SortOrder
     createdAt?: SortOrder
-    updateAt?: SortOrder
+    updatedAt?: SortOrder
     clerkId?: SortOrder
     isOnline?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -12138,7 +12138,7 @@ export namespace Prisma {
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    updateAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     clerkId?: StringWithAggregatesFilter<"User"> | string
     isOnline?: BoolWithAggregatesFilter<"User"> | boolean
   }
@@ -12657,7 +12657,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
     deals?: DealCreateNestedManyWithoutOwnerInput
@@ -12673,7 +12673,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
     deals?: DealUncheckedCreateNestedManyWithoutOwnerInput
@@ -12689,7 +12689,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
     deals?: DealUpdateManyWithoutOwnerNestedInput
@@ -12705,7 +12705,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
     deals?: DealUncheckedUpdateManyWithoutOwnerNestedInput
@@ -12721,7 +12721,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
   }
@@ -12733,7 +12733,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
   }
@@ -12745,7 +12745,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
   }
@@ -13377,7 +13377,7 @@ export namespace Prisma {
     password?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
-    updateAt?: SortOrder
+    updatedAt?: SortOrder
     clerkId?: SortOrder
     isOnline?: SortOrder
   }
@@ -13389,7 +13389,7 @@ export namespace Prisma {
     password?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
-    updateAt?: SortOrder
+    updatedAt?: SortOrder
     clerkId?: SortOrder
     isOnline?: SortOrder
   }
@@ -13401,7 +13401,7 @@ export namespace Prisma {
     password?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
-    updateAt?: SortOrder
+    updatedAt?: SortOrder
     clerkId?: SortOrder
     isOnline?: SortOrder
   }
@@ -14809,7 +14809,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
     deals?: DealCreateNestedManyWithoutOwnerInput
@@ -14824,7 +14824,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
     deals?: DealUncheckedCreateNestedManyWithoutOwnerInput
@@ -14855,7 +14855,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
     deals?: DealUpdateManyWithoutOwnerNestedInput
@@ -14870,7 +14870,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
     deals?: DealUncheckedUpdateManyWithoutOwnerNestedInput
@@ -14962,7 +14962,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
     notes?: NoteCreateNestedManyWithoutUserInput
@@ -14977,7 +14977,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
@@ -15099,7 +15099,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
     notes?: NoteUpdateManyWithoutUserNestedInput
@@ -15114,7 +15114,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
@@ -15161,7 +15161,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
     deals?: DealCreateNestedManyWithoutOwnerInput
@@ -15176,7 +15176,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
     deals?: DealUncheckedCreateNestedManyWithoutOwnerInput
@@ -15236,7 +15236,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
     deals?: DealUpdateManyWithoutOwnerNestedInput
@@ -15251,7 +15251,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
     deals?: DealUncheckedUpdateManyWithoutOwnerNestedInput
@@ -15448,7 +15448,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
     deals?: DealCreateNestedManyWithoutOwnerInput
@@ -15463,7 +15463,7 @@ export namespace Prisma {
     password?: string | null
     role?: $Enums.Role
     createdAt?: Date | string
-    updateAt?: Date | string
+    updatedAt?: Date | string
     clerkId: string
     isOnline?: boolean
     deals?: DealUncheckedCreateNestedManyWithoutOwnerInput
@@ -15556,7 +15556,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
     deals?: DealUpdateManyWithoutOwnerNestedInput
@@ -15571,7 +15571,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clerkId?: StringFieldUpdateOperationsInput | string
     isOnline?: BoolFieldUpdateOperationsInput | boolean
     deals?: DealUncheckedUpdateManyWithoutOwnerNestedInput

@@ -1,7 +1,7 @@
 generator client {
   provider      = "prisma-client-js"
   output        = "./app/generated/prisma"
-  binaryTargets = ["native", "rhel-openssl-3.0.x", "debian-openssl-1.1.x"]
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
@@ -16,7 +16,7 @@ model User {
   password  String?
   role      Role      @default(SALES)
   createdAt DateTime  @default(now())
-  updateAt  DateTime  @updatedAt
+  updatedAt DateTime  @updatedAt
   clerkId   String    @unique
   isOnline  Boolean   @default(false)
   deals     Deal[]    @relation("UserDeals")

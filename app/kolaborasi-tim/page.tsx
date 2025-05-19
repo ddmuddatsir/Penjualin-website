@@ -10,7 +10,7 @@ type Member = {
   name: string;
   email: string;
   role: "Admin" | "Sales" | "Manager";
-  createAt: string;
+  createdAt: string;
   isOnline: boolean;
   taskToday: string;
   taskStatus: "Selesai" | "Belum Selesai";
@@ -244,8 +244,8 @@ export default function Page() {
                       </span>
                     </td>
                     <td className="py-3 px-4">
-                      {member.createAt
-                        ? new Date(member.createAt).toISOString().slice(0, 10)
+                      {member.createdAt
+                        ? new Date(member.createdAt).toISOString().slice(0, 10)
                         : "-"}
                     </td>
                     <td className="py-3 px-4">
