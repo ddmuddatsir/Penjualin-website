@@ -238,6 +238,14 @@ const config = {
         "fromEnvVar": null,
         "value": "darwin",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-1.1.x"
       }
     ],
     "previewFeatures": [],
@@ -264,8 +272,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"./app/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        String    @id @default(uuid())\n  name      String\n  email     String\n  password  String?\n  role      Role      @default(SALES)\n  createdAt DateTime  @default(now())\n  updateAt  DateTime  @updatedAt\n  clerkId   String    @unique\n  isOnline  Boolean   @default(false)\n  deals     Deal[]    @relation(\"UserDeals\")\n  notes     Note[]\n  Session   Session[]\n  tasks     Task[]    @relation(\"AssignedTasks\")\n}\n\nmodel Session {\n  id        String   @id @default(uuid())\n  userId    String\n  token     String   @unique\n  expiresAt DateTime\n  createdAt DateTime @default(now())\n  user      User     @relation(fields: [userId], references: [id])\n}\n\nmodel Customer {\n  id        String   @id @default(uuid())\n  name      String\n  email     String?\n  phone     String?\n  address   String?\n  company   String?\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  deals     Deal[]\n}\n\nmodel Deal {\n  id         String    @id @default(uuid())\n  name       String\n  value      Int\n  stage      DealStage @default(Prospek)\n  customerId String\n  ownerId    String\n  createdAt  DateTime  @default(now())\n  updatedAt  DateTime  @updatedAt\n  customer   Customer  @relation(fields: [customerId], references: [id])\n  owner      User      @relation(\"UserDeals\", fields: [ownerId], references: [id])\n  notes      Note[]\n  tasks      Task[]\n}\n\nmodel Task {\n  id          String    @id @default(uuid())\n  title       String\n  description String?\n  deadline    DateTime?\n  completed   Boolean   @default(false)\n  dealId      String\n  assigneeId  String\n  createdAt   DateTime  @default(now())\n  updatedAt   DateTime  @updatedAt\n  assignee    User      @relation(\"AssignedTasks\", fields: [assigneeId], references: [id])\n  deal        Deal      @relation(fields: [dealId], references: [id])\n}\n\nmodel Product {\n  id         String   @id @default(uuid())\n  name       String\n  price      Int\n  categoryId String\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n  category   Category @relation(fields: [categoryId], references: [id])\n}\n\nmodel Category {\n  id        String    @id @default(uuid())\n  name      String\n  createdAt DateTime  @default(now())\n  products  Product[]\n}\n\nmodel Note {\n  id          String       @id @default(uuid())\n  content     String\n  userId      String\n  dealId      String\n  createdAt   DateTime     @default(now())\n  attachments Attachment[]\n  deal        Deal         @relation(fields: [dealId], references: [id])\n  user        User         @relation(fields: [userId], references: [id])\n}\n\nmodel Attachment {\n  id         String   @id @default(uuid())\n  url        String\n  fileName   String\n  noteId     String\n  uploadedAt DateTime @default(now())\n  note       Note     @relation(fields: [noteId], references: [id])\n}\n\nenum Role {\n  ADMIN\n  SALES\n  MANAGER\n}\n\nenum DealStage {\n  Prospek\n  Negosiasi\n  Closing\n  Selesai\n}\n",
-  "inlineSchemaHash": "b28485d308f51a5b769b767fa001388488aff7c4caaec5d832f153cf3715dabb",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./app/generated/prisma\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\", \"debian-openssl-1.1.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        String    @id @default(uuid())\n  name      String\n  email     String\n  password  String?\n  role      Role      @default(SALES)\n  createdAt DateTime  @default(now())\n  updateAt  DateTime  @updatedAt\n  clerkId   String    @unique\n  isOnline  Boolean   @default(false)\n  deals     Deal[]    @relation(\"UserDeals\")\n  notes     Note[]\n  Session   Session[]\n  tasks     Task[]    @relation(\"AssignedTasks\")\n}\n\nmodel Session {\n  id        String   @id @default(uuid())\n  userId    String\n  token     String   @unique\n  expiresAt DateTime\n  createdAt DateTime @default(now())\n  user      User     @relation(fields: [userId], references: [id])\n}\n\nmodel Customer {\n  id        String   @id @default(uuid())\n  name      String\n  email     String?\n  phone     String?\n  address   String?\n  company   String?\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  deals     Deal[]\n}\n\nmodel Deal {\n  id         String    @id @default(uuid())\n  name       String\n  value      Int\n  stage      DealStage @default(Prospek)\n  customerId String\n  ownerId    String\n  createdAt  DateTime  @default(now())\n  updatedAt  DateTime  @updatedAt\n  customer   Customer  @relation(fields: [customerId], references: [id])\n  owner      User      @relation(\"UserDeals\", fields: [ownerId], references: [id])\n  notes      Note[]\n  tasks      Task[]\n}\n\nmodel Task {\n  id          String    @id @default(uuid())\n  title       String\n  description String?\n  deadline    DateTime?\n  completed   Boolean   @default(false)\n  dealId      String\n  assigneeId  String\n  createdAt   DateTime  @default(now())\n  updatedAt   DateTime  @updatedAt\n  assignee    User      @relation(\"AssignedTasks\", fields: [assigneeId], references: [id])\n  deal        Deal      @relation(fields: [dealId], references: [id])\n}\n\nmodel Product {\n  id         String   @id @default(uuid())\n  name       String\n  price      Int\n  categoryId String\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n  category   Category @relation(fields: [categoryId], references: [id])\n}\n\nmodel Category {\n  id        String    @id @default(uuid())\n  name      String\n  createdAt DateTime  @default(now())\n  products  Product[]\n}\n\nmodel Note {\n  id          String       @id @default(uuid())\n  content     String\n  userId      String\n  dealId      String\n  createdAt   DateTime     @default(now())\n  attachments Attachment[]\n  deal        Deal         @relation(fields: [dealId], references: [id])\n  user        User         @relation(fields: [userId], references: [id])\n}\n\nmodel Attachment {\n  id         String   @id @default(uuid())\n  url        String\n  fileName   String\n  noteId     String\n  uploadedAt DateTime @default(now())\n  note       Note     @relation(fields: [noteId], references: [id])\n}\n\nenum Role {\n  ADMIN\n  SALES\n  MANAGER\n}\n\nenum DealStage {\n  Prospek\n  Negosiasi\n  Closing\n  Selesai\n}\n",
+  "inlineSchemaHash": "fe63d0b7a7f22256f7926ddbbfa76b737a42901c87df5dfa0544e8e03e1e8fd4",
   "copyEngine": true
 }
 
@@ -306,6 +314,14 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "libquery_engine-darwin.dylib.node");
 path.join(process.cwd(), "prisma/app/generated/prisma/libquery_engine-darwin.dylib.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-rhel-openssl-3.0.x.so.node");
+path.join(process.cwd(), "prisma/app/generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-debian-openssl-1.1.x.so.node");
+path.join(process.cwd(), "prisma/app/generated/prisma/libquery_engine-debian-openssl-1.1.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "prisma/app/generated/prisma/schema.prisma")
